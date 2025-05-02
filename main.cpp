@@ -1,113 +1,83 @@
-
-
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main()
 {
   bool gameover;
+  int opcion;
   int vida;
-  unsigned short int numero;
-  bool opcion1; // para LA SELECCION de menu 
-  char avanzar;
+  char avanzar;  // `s` y `n` para avanzar a siguiente pantalla "quieres continuar?"
+  bool IniciarJuego; // En vez de modo facil del ejemplo. Habra modo INICIAR juego verdadero e iniciar juego falso
+  char salir; // o un salir
    
-  vida = 2;
+  vida = 1;
   gameover = false;
 
-  while (gameover); 
+
+  while (!gameover)
   {
     do
     {
-      // Sistema de validación 
+      // Sistema de validación
         system("clear");
-        cout << "Estás en el MENÚ... Elige una opción " << endl; 
+        cout << "Estás en el MENÚ... Elige una opción " << endl;
         // agregamos las opciones
         cout << "1 - Jugar\n";
-        cout << "2 - ¿Como jugar?\n";
-        cout << "3 - Alumnos \n\n";
-    
+        cout << "2 - Créditos\n"; // para ingresar nuestros nombres y como jugar
         cout << "Ingrese Opción: ";
-        cin >> numero;
-    
-        
-        switch (numero)
+        cin >> opcion;
+    } while (opcion != 1 && opcion != 2);
+       
+    system("clear");
+    switch (opcion)
         {
-          
+         
         case 1:
           cout << "Elegiste iniciar el juego" << endl;
-          opcion1 = true;  
-          gameover = false; // a ver que pasa con false XD
-
-            // aca empezaria el juego 
-          break; 
+          IniciarJuego = true;  
+          break;
         case 2:  
-          cout << "Acà se explica como jugar " << endl;
-          gameover = true; 
-          break;
-        case 3:
-          cout << "Nosotros somos: Camilo, Dulce, Lourdes y Tomas" << endl;
-          gameover = true;
-          break;
-        default: 
-          cout << "¡Opción incorrecta!\n" << endl;
-    
+          cout << " CRÉDITOS. JUEGO ASOMBROSO HECHO POR CAMILO, DULCE, LOURDES Y TOMAS! " << endl;
           
-          cout << "Presione ENTER para continuar..." << endl;
-          cin.ignore().get();
-    
-          gameover = false;
+          //IniciarJuego = false; tenemos dudas, no sabemos si va
           break;
-          }
-         // cin >> numero;
-
-     } while (vida >= 1);
-
-
+        default:
+        break;
+          // cout << "¡Opción incorrecta!\n" << endl;
+        }
 
      while (vida >=1)
      {
-      cout << "EL ETERNAUTA" << endl;
-      if (opcion1)
-      { 
-        cout << "EMPEZÒ LA AVENTURA. PANTALLA 1" << endl; 
-        cout << "Queres avanzar a la siguiente pantalla?" << endl;
-        cout << "Querès? (S/N)" << endl;
-        cin >> avanzar; 
-        if (avanzar == 's')
+      cout << "EL ETERNAUTA. Juego Iniciado" << endl;
+     
+      if (IniciarJuego)
+      {
+        cout << "EMPEZÒ LA AVENTURA. PANTALLA 1" << endl;
+        cout << "Querès avanzar? (s/n)" << endl;
+        cin >> avanzar;
+        if (avanzar == 's' || 'S')
         {
-          cout << "AVANZAMOS A PANTALLA 2" << endl;
+          cout << "Dale, AVANZAMOS A la PANTALLA 2" << endl;
           vida = 1;
         }
-        else if ( avanzar == 'n' )
-        {
-          cout << "Listo, vamos a pantalla 3." << endl; 
-          vida = 0;
-        } 
-      }
-      else 
-      {
+        
 
+
+
+        else if ( avanzar == 'n' || 'N')
+        {
+          cout << "Listo, salimos del juego!" << endl;
+          vida = 0;
+        }
       }
      }
 
-    cout << "Presione enter para continuar...";
-    cin.ignore().get();
 
+    cout << "Presione enter para continuar...";
     }
-  }
-  system("clear");
+ 
   return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
