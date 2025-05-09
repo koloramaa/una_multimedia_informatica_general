@@ -10,6 +10,9 @@ int main()
   bool gameover;
   int opcion;   // Para el menú principal
   int eleccion; // Para las elecciones del juego
+  // bool trapoPiso;
+  // bool vestidoQuince;
+  // bool cortina; queríamos hacerlo con items pero no sabemos como :(
 
 
 
@@ -136,13 +139,13 @@ int main()
 
               cout << R"(¿Con qué haces tu traje?
 
-              1) Cortina de baño 
+              1) Cortina de baño
 
 
               2) Trapo de piso
 
 
-              3) Vestido de XV de tu hermana.)" << endl; 
+              3) Vestido de XV de tu hermana.)" << endl;
               // acá tendría que adquirirse uno de los materiales que va a influir en el resultado posterior
 
               cout << "ElEGÍ UN MATERIAL PRESIONANDO EL NÚMERO CORRESPONDIENTE" << endl;
@@ -151,95 +154,114 @@ int main()
 
             } while (eleccion != 1 && eleccion != 2 && eleccion != 3);
 
-
-
             // Pantalla 2.1.1
 
-            if (eleccion == 1)
+            if (eleccion == 1 || eleccion ==2)
 
             {
-
+              
               system("clear");
 
-              cout << "Este es el final de 2.1.1" << endl;
+              cout << R"(Narrador: Bien! El traje quedó perfecto gracias a los materiales escogidos.
+                      Camilo: Entonces, ¿quién saldrá?
 
-              cin.ignore().get();
+                      Pausa tensa. Todxs se miran entre sí.
 
-              gameover = true;
+                      Narrador:  Parece existir un acuerdo implícito en que te tocará salir a vos. 
+                      Ahora, ¡¡¡¿Te arriesgas a salir a la nieve?!!!
+
+
+              PRESIONE 1. Mirás a todos con mucho cariño, pero les decis que te vas a quedar en la casa. 
+
+
+              PRESIONE 2. Tomas el liderazgo y salís. (Salto a pantalla 6) 
+                      )" << endl;
+              cin >> eleccion;
+
+              // la opcion 1 nos lleva a pantalla 6, la opción 2 nos lleva a pantalla 7 (win)
 
             }
+
+              if (eleccion == 1)
+
+              {
+                cout << R"(Camilo: Toda tu vida estuviste esperando para este momento. ¡Todos esos cómics de supervivencia, y tu entrenamiento en los boy scouts!
+                Sos realmente el único que puede salir y ayudarnos. Confiamos en vos.
+                
+                SALÍS AL EXTERIOR)"
+
+                << endl;
+                gameover = true;
+
+
+              }
+
+              if (eleccion ==2)
+
+              {
+                cout << R"(Narrador: Los copos de nieve caen a tu alrededor. Se ve como un cuento de hadas. El horizonte se ve prometedor. Un rayo de luz te da esperanzas…  
+                La nieve es peligrosa pero tu traje hecho de cortina funciona como aislante. 
+                (Por eso el trapo de piso no tiene sentido)  
+                Escuchas el grito eufórico de tus amigos en la ventana… Es hora de que te conviertas 
+                en el héroe que siempre quisiste…. 
+                ¡GANASTE! Pero la aventura recién empieza….)" << endl;
+
+
+
+
+
+              }
+
+
+
+                     
+
+
+            }
+
+
+            
+
 
             // Pantalla 2.1.2
 
-            else if (eleccion == 2)
+            else if (eleccion == 3)
 
             {
 
               system("clear");
 
-              cout << "Este es el final de 2.1.2" << endl;
+              // Buscar acá la forma de "presionar enter" para seguir y que no sea todo un choclo de una
 
-              cin.ignore().get();
+              cout << R"(Narrador: Bien! El traje quedó perfecto gracias a los materiales escogidos.
+              Camilo: Entonces, ¿quién saldrá?
 
-              gameover = true;
+              Pausa tensa. Todxs se miran entre sí.
 
-            }
+              Narrador:  Parece existir un acuerdo implícito en que te tocará salir a vos. 
+              Aceptás con resignación porque no sabés si va a funcionar. Te tiembla todo el cuerpo mientras
+              tus amigos te ayudan a colocarte el traje. Bajás las escaleras. Recibís abrazos y fuerza de todos.
+              
 
-          }
+              Abrís la puerta. El aire se torna aún más helado. Parece que... ¡Funciona!. 
+              
+              Te das vuelta y saltás alegre
 
-          // Pantalla 2.2
+              mientras ves a tus amigos saludandote por la ventana.......
+              .....
+              .....
 
-          else if (eleccion == 2)
+              Tus músculos empiezan a perder fuerza.....
 
-          {
+              No entendés muy bien que está pasando. Intentás volver pero tus rodillas ceden.
 
-            do
+              Recordás a mamá.
 
-            {
+              Tus amigos golpean la ventana...
 
-              system("clear");
-
-              cout << "Esta es la pantalla 2.2 del juego.\n"
-
-                   << endl;
-
-              cout << "Elija una opción:" << endl;
-
-              cout << "OPCION 1 (Presione 1)" << endl;
-
-              cout << "OPCION 2 (Presione 2)" << endl;
-
-              cin >> eleccion;
-
-            } while (eleccion != 1 && eleccion != 2);
-
-
-
-            // Pantalla 2.2.1
-
-            if (eleccion == 1)
-
-            {
-
-              system("clear");
-
-              cout << "Este es el final de 2.2.1" << endl;
-
-              cin.ignore().get();
-
-              gameover = true;
-
-            }
-
-            // Pantalla 2.2.2
-
-            else if (eleccion == 2)
-
-            {
-
-              system("clear");
-
-              cout << "Este es el final de 2.2.2" << endl;
+              Y es lo último que ves.
+              
+              )" << endl;
 
               cin.ignore().get();
 
@@ -250,70 +272,6 @@ int main()
           }
 
         }
-
-        //-------------------------- Pantalla 3 ---------------------------
-
-        else if (eleccion == 3)
-
-        {
-
-          do
-
-          {
-
-            system("clear");
-
-            cout << "Esta es la pantalla 3 del juego.\n"
-
-                 << endl;
-
-            cout << "Elija una opción:" << endl;
-
-            cout << "OPCION 1 (Presione 1)" << endl;
-
-            cin >> eleccion;
-
-          } while (eleccion != 1);
-
-
-
-          // Pantalla 3.1
-
-          if (eleccion == 1)
-
-          {
-
-            system("clear");
-
-            cout << "Este es el final de 3.1" << endl;
-
-            cin.ignore().get();
-
-            gameover = true;
-
-          }
-
-        }
-
-        //-------------------------- Pantalla 4 ---------------------------
-
-        else if (eleccion == 4)
-
-        {
-
-          system("clear");
-
-          cout << "Este es el final de 4" << endl;
-
-          cin.ignore().get();
-
-          gameover = true;
-
-        }
-
-      }
-
-
 
       system("clear");
 
@@ -327,6 +285,8 @@ int main()
 
     }
 
+  
+
     else
 
     {
@@ -336,15 +296,14 @@ int main()
     }
 
   }
+    
+    system("clear");
 
+    cout << "Hasta la próxima!" << endl;  
+  
+    return 0;
 
+  
 
-  system("clear");
-
-  cout << "Hasta la próxima!" << endl;
-
-
-
-  return 0;
 
 }
