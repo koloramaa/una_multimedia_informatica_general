@@ -37,7 +37,7 @@ int main()
         cout << "Ha decidido salir del juego..." << endl;
         cin.ignore().get();
         break;
-        case 3:
+      case 3:
         system ("clear");
         cout <<  "Créditos" << endl;
         cin.ignore().get();
@@ -77,12 +77,12 @@ int main()
 
         } while (eleccion != 1 && eleccion != 2); 
 
-        //-------------------------- Pantalla 1 ---------------------------
+        //-------------------------- Pantalla 1 - Salir y morir  ---------------------------
 
         if (eleccion == 1)
 
         {
-            //pantalla gameover
+            // Elección de salir a la nieve. Significa que termina el juego.
             system("clear");
             cout << "Saliste directo a la nieve. Puede parecer un cuento de hadas, pero la nieve te aniquila. Moriste." << endl;
             
@@ -92,10 +92,9 @@ int main()
 
           } 
 
-        //-------------------------- Pantalla 2 ---------------------------
+        //-------------------------- Pantalla 2 - Quedarte en casa  ---------------------------
 
-        else if (eleccion == 2)
-
+        else if (eleccion == 2) // Esto lleva a la posibilidad de seguir jugando y hacer un traje.
         {
 
           do
@@ -122,8 +121,9 @@ int main()
 
 
 
-          // Pantalla 2.1
-
+          // -------------------------- Pantalla 3 - Creación del traje  ---------------------------
+          
+          
           if (eleccion == 1 || eleccion == 2)
 
           {
@@ -146,7 +146,7 @@ int main()
 
 
               3) Vestido de XV de tu hermana.)" << endl;
-              // acá tendría que adquirirse uno de los materiales que va a influir en el resultado posterior
+              // acá tendría que adquirirse uno de los materiales que va a influir en el resultado posterior. No sabemos como hacerlo :(
 
               cout << "ElEGÍ UN MATERIAL PRESIONANDO EL NÚMERO CORRESPONDIENTE" << endl;
 
@@ -154,41 +154,33 @@ int main()
 
             } while (eleccion != 1 && eleccion != 2 && eleccion != 3);
 
-            // Pantalla 2.1.1
+            // ------------------ Pantalla 3.1 - TRAJE Cortina de baño --------------------------
 
-            if (eleccion == 1 || eleccion ==2)
+            if (eleccion == 1)
 
             {
               
               system("clear");
 
-              cout << R"(Narrador: Bien! El traje quedó perfecto gracias a los materiales escogidos.
-                      Camilo: Entonces, ¿quién saldrá?
-
-                      Pausa tensa. Todxs se miran entre sí.
-
-                      Narrador:  Parece existir un acuerdo implícito en que te tocará salir a vos. 
-                      Ahora, ¡¡¡¿Te arriesgas a salir a la nieve?!!!
-
-
-              PRESIONE 1. Mirás a todos con mucho cariño, pero les decis que te vas a quedar en la casa. 
-
-
-              PRESIONE 2. Tomas el liderazgo y salís. (Salto a pantalla 6) 
-                      )" << endl;
+              cout << R"(Narrador: Los copos de nieve caen a tu alrededor. Se ve como un cuento de hadas. El horizonte se ve prometedor. Un rayo de luz te da esperanzas…  
+                La nieve es peligrosa pero tu traje hecho de cortina funciona como aislante. 
+                (Por eso el trapo de piso no tiene sentido)  
+                Escuchas el grito eufórico de tus amigos en la ventana… Es hora de que te conviertas 
+                en el héroe que siempre quisiste…. 
+                ¡GANASTE! Pero la aventura recién empieza….)" << endl;
               cin >> eleccion;
 
-              // la opcion 1 nos lleva a pantalla 6, la opción 2 nos lleva a pantalla 7 (win)
+              // Este objeto llevaría a la pantalla de victoria.
 
             }
 
-              if (eleccion == 1)
+            else if (eleccion == 2)
+            // ------------------ Pantalla 3.2 - TRAJE Trapo de Piso  --------------------------
+
 
               {
-                cout << R"(Camilo: Toda tu vida estuviste esperando para este momento. ¡Todos esos cómics de supervivencia, y tu entrenamiento en los boy scouts!
-                Sos realmente el único que puede salir y ayudarnos. Confiamos en vos.
-                
-                SALÍS AL EXTERIOR)"
+                cout << R"(Tu traje tiene fue creado. En el proceso de creación se formaron algunas
+                rajaduras producto de lo viejo de los trapos.)" // Con esta opción cuando salga a la nieve morirá.
 
                 << endl;
                 gameover = true;
@@ -196,34 +188,21 @@ int main()
 
               }
 
-              if (eleccion ==2)
+            else if (eleccion ==3)
+            // ------------------ Pantalla 3.3 - TRAJE Vestido de 15   --------------------------
 
               {
-                cout << R"(Narrador: Los copos de nieve caen a tu alrededor. Se ve como un cuento de hadas. El horizonte se ve prometedor. Un rayo de luz te da esperanzas…  
-                La nieve es peligrosa pero tu traje hecho de cortina funciona como aislante. 
-                (Por eso el trapo de piso no tiene sentido)  
-                Escuchas el grito eufórico de tus amigos en la ventana… Es hora de que te conviertas 
-                en el héroe que siempre quisiste…. 
-                ¡GANASTE! Pero la aventura recién empieza….)" << endl;
-
-
-
+                cout << R"(Esto no parece funcionar. El vestido tiene muchas partes de tela fina y microtul. Parece que la nieve se a infiltrar por allí. Intentá la opción 1 o 2.)" << endl;
+                cin.ignore().get();
 
 
               }
 
 
-
-                     
-
-
-            }
-
-
             
 
 
-            // Pantalla 2.1.2
+           /*  // Pantalla 2.1.2
 
             else if (eleccion == 3)
 
@@ -267,7 +246,7 @@ int main()
 
               gameover = true;
 
-            }
+            } */
 
           }
 
@@ -285,9 +264,10 @@ int main()
 
     }
 
-  
 
-    else
+  }
+
+     else
 
     {
 
@@ -300,10 +280,13 @@ int main()
     system("clear");
 
     cout << "Hasta la próxima!" << endl;  
+
+    
+
+
   
     return 0;
 
-  
-
-
 }
+
+
