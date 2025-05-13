@@ -10,11 +10,9 @@ int main()
   bool gameover;
   int opcion;   // Para el menú principal
   int eleccion; // Para las elecciones del juego
-  // bool trapoPiso;
-  // bool vestidoQuince;
-  // bool cortina; queríamos hacerlo con items pero no sabemos como :(
-
-
+  bool trapo = false;
+  bool cortina = false;
+  bool validadorMaterial = false;
 
   while (!salir_del_juego)
 
@@ -24,12 +22,13 @@ int main()
       system("clear");
       cout << "EMPEZAR EL JUEGO (PRESIONE 1)" << endl;
       cout << "SALIR (PRESIONE 2)" << endl;
+      cout << "CRÉDITOS (PRESIONE 3)" << endl;
       cin >> opcion;
       switch (opcion)
       {
       case 1:
         system("clear");
-        cout << "El juego está por comenzar..." << endl;
+        cout << "El juego está por comenzar... PRESIONA ENTER PARA SEGUIR." << endl;
         cin.ignore().get();
         break;
       case 2:
@@ -112,7 +111,7 @@ int main()
 
             << endl;
 
-            cout << R"(Todos te miran a vos para tomar una decisión. Estás nervioso pero sabes que cuentan con vos. Presioná 1 para LLENARTE DE DETERMINACIÓN
+            cout << R"(Todos te m iran a vos para tomar una decisión. Estás nervioso pero sabes que cuentan con vos. Presioná 1 para LLENARTE DE DETERMINACIÓN
             o presiona 2 para mirar hacia el piso y NO DECIR NADA.)" << endl;
 
             cin >> eleccion;
@@ -152,9 +151,8 @@ int main()
 
               cin >> eleccion;
 
-            } while (eleccion != 1 && eleccion != 2 && eleccion != 3);
+              validadorMaterial = true;
 
-            // ------------------ Pantalla 3.1 - TRAJE Cortina de baño --------------------------
 
             if (eleccion == 1)
 
@@ -162,16 +160,14 @@ int main()
               
               system("clear");
 
-              cout << R"(Narrador: Los copos de nieve caen a tu alrededor. Se ve como un cuento de hadas. El horizonte se ve prometedor. Un rayo de luz te da esperanzas…  
-                La nieve es peligrosa pero tu traje hecho de cortina funciona como aislante. 
-                (Por eso el trapo de piso no tiene sentido)  
-                Escuchas el grito eufórico de tus amigos en la ventana… Es hora de que te conviertas 
-                en el héroe que siempre quisiste…. 
-                ¡GANASTE! Pero la aventura recién empieza….)" << endl;
-              cin >> eleccion;
+              cout << R"(Narrador: Tomás la cortina del baño y empezás a confeccionar cortes para que cubra distintas partes de tu cuerpo.
+              Tus amigos te ayudan cortando y encintando. Después de 30 minutos estás recubierto de plástico.)" << endl;
+              cin.ignore().get();
+              cortina = true;
+              trapo = false;
+
 
               // Este objeto llevaría a la pantalla de victoria.
-
             }
 
             else if (eleccion == 2)
@@ -183,23 +179,88 @@ int main()
                 rajaduras producto de lo viejo de los trapos.)" // Con esta opción cuando salga a la nieve morirá.
 
                 << endl;
-                gameover = true;
 
+                trapo = true;
+                cortina = false;
 
               }
 
-            else if (eleccion ==3)
+            else if (eleccion == 3)
             // ------------------ Pantalla 3.3 - TRAJE Vestido de 15   --------------------------
 
               {
-                cout << R"(Esto no parece funcionar. El vestido tiene muchas partes de tela fina y microtul. Parece que la nieve se a infiltrar por allí. Intentá la opción 1 o 2.)" << endl;
+                cout << R"(Esto no parece funcionar. El vestido tiene muchas partes de tela fina y microtul. Parece que la nieve se va a infiltrar por allí. Intentá la opción 1 o 2.)" << endl;
                 cin.ignore().get();
+                
+              }
 
+
+            } while (!validadorMaterial);
+
+            // ------------------ Pantalla 3.1 - TRAJE Cortina de baño --------------------------
+
+
+              if (cortina)
+
+              {
+                system("clear");
+                cout << R"(Saliste con la cortina de baño). GANASTE!!!)" << endl;
+                cin.ignore().get();
+                gameover = true;
+
+              }
+                
+            
+
+              else if (trapo)
+              {
+                system("clear");
+                cout << R"(Saliste con el trapo)" << endl;
+                cin.ignore().get();
+                gameover = true;
 
               }
 
 
-            
+          }
+
+        }
+
+      system("clear");
+
+
+
+      cout << "Game Over" << endl;
+
+      cout << "Presione ENTER para continuar...";
+
+      cin.get();
+
+    }
+
+
+  }
+
+
+    else
+  
+    {
+
+      salir_del_juego = true;
+      
+      system("clear");
+
+    cout << "Hasta la próxima!" << endl;  
+    }
+}
+
+    
+  
+    return 0;
+
+}
+
+
 
 
            /*  // Pantalla 2.1.2
@@ -247,46 +308,3 @@ int main()
               gameover = true;
 
             } */
-
-          }
-
-        }
-
-      system("clear");
-
-
-
-      cout << "Game Over" << endl;
-
-      cout << "Presione ENTER para continuar...";
-
-      cin.get();
-
-    }
-
-
-  }
-
-     else
-
-    {
-
-      salir_del_juego = true;
-
-    }
-
-  }
-    
-    system("clear");
-
-    cout << "Hasta la próxima!" << endl;  
-
-    
-
-
-  
-    return 0;
-
-}
-
-
