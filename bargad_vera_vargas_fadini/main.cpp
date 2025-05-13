@@ -145,7 +145,6 @@ int main()
 
 
               3) Vestido de XV de tu hermana.)" << endl;
-              // acá tendría que adquirirse uno de los materiales que va a influir en el resultado posterior. No sabemos como hacerlo :(
 
               cout << "ElEGÍ UN MATERIAL PRESIONANDO EL NÚMERO CORRESPONDIENTE" << endl;
 
@@ -189,13 +188,13 @@ int main()
             // ------------------ Pantalla 3.3 - TRAJE Vestido de 15   --------------------------
 
               {
-                cout << R"(Esto no parece funcionar. El vestido tiene muchas partes de tela fina y microtul. Parece que la nieve se va a infiltrar por allí. Intentá la opción 1 o 2.)" << endl;
+                cout << R"(Esto no parece funcionar. El vestido tiene muchas partes de tela fina y microtul. Parece que la nieve se va a infiltrar por allí. PRESIONA ENTER PARA CONTINUAR.)" << endl;
                 cin.ignore().get();
                 
               }
 
 
-            } while (!validadorMaterial);
+            } while (!validadorMaterial || eleccion != 1 || eleccion != 2 || eleccion !=3);
 
             // ------------------ Pantalla 3.1 - TRAJE Cortina de baño --------------------------
 
@@ -204,7 +203,7 @@ int main()
 
               {
                 system("clear");
-                cout << R"(Saliste con la cortina de baño). GANASTE!!!)" << endl;
+                cout << R"(Saliste con la cortina de baño). GANASTE!!!. Presiona ENTER para continuar.)" << endl;
                 cin.ignore().get();
                 gameover = true;
 
@@ -215,11 +214,12 @@ int main()
               else if (trapo)
               {
                 system("clear");
-                cout << R"(Saliste con el trapo)" << endl;
+                cout << R"(Saliste con el trapo. Presiona ENTER para continuar.)" << endl;
                 cin.ignore().get();
                 gameover = true;
 
               }
+
 
 
           }
