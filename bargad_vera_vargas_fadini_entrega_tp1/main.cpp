@@ -7,7 +7,7 @@ int main()
 {
 
   bool salir_del_juego = false;
-  bool gameover;
+  bool gameover = false;
   int opcion;   // Para el menú principal
   int eleccion; // Para las elecciones del juego
   bool trapo = false;
@@ -38,7 +38,15 @@ int main()
         break;
       case 3:
         system ("clear");
-        cout <<  "Créditos" << endl;
+        cout << R"(Juego hecho por
+          Dulce Vera
+          Lourdes Fadini
+          Tomás Bargad
+          Camilo Vargas
+          Alumnos de Artes Multimediales
+          Informatica General 1
+          Bajo las órdenes del Almirante Tirigall
+          y la Vice Almirante )" << endl;
         cin.ignore().get();
         break;
         
@@ -174,7 +182,7 @@ int main()
 
 
               {
-                cout << R"(Tu traje tiene fue creado. En el proceso de creación se formaron algunas
+                cout << R"(Tu traje fue creado. En el proceso de creación se formaron algunas
                 rajaduras producto de lo viejo de los trapos.)" // Con esta opción cuando salga a la nieve morirá.
 
                 << endl;
@@ -189,12 +197,15 @@ int main()
 
               {
                 cout << R"(Esto no parece funcionar. El vestido tiene muchas partes de tela fina y microtul. Parece que la nieve se va a infiltrar por allí. PRESIONA ENTER PARA CONTINUAR.)" << endl;
+                validadorMaterial = false;
+                trapo = false;
+                cortina = false;
                 cin.ignore().get();
                 
               }
 
 
-            } while (!validadorMaterial || eleccion != 1 || eleccion != 2 || eleccion !=3);
+            } while (eleccion < 1 || eleccion > 3 || !validadorMaterial);
 
             // ------------------ Pantalla 3.1 - TRAJE Cortina de baño --------------------------
 
