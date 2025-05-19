@@ -10,9 +10,10 @@ int main()
   bool gameover = false;
   int opcion;   // Para el menú principal
   int eleccion; // Para las elecciones del juego
-  bool trapo = false;
+  bool trapo = false; // Elementos elegidos por el jugador
   bool cortina = false;
-  bool validadorMaterial = false;
+  bool validadorMaterial = false; // Para volver al loop al elegir Vestido de 15
+   
 
   while (!salir_del_juego)
 
@@ -46,7 +47,8 @@ int main()
           Alumnos de Artes Multimediales
           Informatica General 1
           Bajo las órdenes del Almirante Tirigall
-          y la Vice Almirante )" << endl;
+          y la Vice Almirante Qualindi
+          )" << endl;
         cin.ignore().get();
         break;
         
@@ -168,22 +170,19 @@ int main()
               system("clear");
 
               cout << R"(Narrador: Tomás la cortina del baño y empezás a confeccionar cortes para que cubra distintas partes de tu cuerpo.
-              Tus amigos te ayudan cortando y encintando. Después de 30 minutos estás recubierto de plástico.)" << endl;
-              cin.ignore().get();
+              Tus amigos te ayudan cortando y encintando. Después de 30 minutos estás recubierto de plástico. PRESIONA ENTER PARA CONTINUAR)" << endl;
+              
               cortina = true;
               trapo = false;
-
-
-              // Este objeto llevaría a la pantalla de victoria.
+              cin.ignore().get();
             }
 
             else if (eleccion == 2)
             // ------------------ Pantalla 3.2 - TRAJE Trapo de Piso  --------------------------
 
-
               {
                 cout << R"(Tu traje fue creado. En el proceso de creación se formaron algunas
-                rajaduras producto de lo viejo de los trapos.)" // Con esta opción cuando salga a la nieve morirá.
+                rajaduras producto de lo viejo de los trapos. Presiona ENTER para continuar.)" // Con esta opción cuando salga a la nieve morirá.
 
                 << endl;
 
@@ -196,7 +195,9 @@ int main()
             // ------------------ Pantalla 3.3 - TRAJE Vestido de 15   --------------------------
 
               {
-                cout << R"(Esto no parece funcionar. El vestido tiene muchas partes de tela fina y microtul. Parece que la nieve se va a infiltrar por allí. PRESIONA ENTER PARA CONTINUAR.)" << endl;
+                cout << R"(Esto no parece funcionar. El vestido tiene muchas partes de tela fina y microtul. 
+                Parece que la nieve se va a infiltrar por allí. 
+                PRESIONA ENTER PARA CONTINUAR.)" << endl;
                 validadorMaterial = false;
                 trapo = false;
                 cortina = false;
@@ -214,9 +215,44 @@ int main()
 
               {
                 system("clear");
-                cout << R"(Saliste con la cortina de baño). GANASTE!!!. Presiona ENTER para continuar.)" << endl;
+                cout << R"(Elegiste cortina de baño. Coordinas con tus amigos para que encuentren tijeras, agujas, hilos, para
+                poder hacer los cortes y adaptarlos a tu cuerpo.
+                
+                Retiran la cortina del baño. Utilizan una cinta metrica y la medida resultante es de 180cm de alto x 240cm de largo. 
+                Elegí en que punto haces el corte para que te den trozos que cubran tus brazos y piernas en partes iguales.
+                
+                Ingresa LA ALTURA 
+
+              
+
+
+                )" << endl;
+
+
+                // logica para imprimir el traje con celdas de la matriz
+
+                string costura;
+                int alto = 20, ancho = 25;
+                
+                for (int i = 1; i <= alto; i++)
+                {
+                  for (int j = 1; j <= ancho; j++)
+                   {
+                      cout << i << "," << j << " " ;
+
+                        }
+
+                }
+                
+              
+
+
+              
+
+
                 cin.ignore().get();
-                gameover = true;
+
+               
 
               }
                 
@@ -227,12 +263,8 @@ int main()
                 system("clear");
                 cout << R"(Saliste con el trapo. Presiona ENTER para continuar.)" << endl;
                 cin.ignore().get();
-                gameover = true;
 
               }
-
-
-
           }
 
         }
