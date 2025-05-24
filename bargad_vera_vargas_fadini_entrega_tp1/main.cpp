@@ -213,51 +213,33 @@ int main()
 
               if (cortina)
 
-              {
-                system("clear");
-                cout << R"(Elegiste cortina de baño. Coordinas con tus amigos para que encuentren tijeras, agujas, hilos, para
-                poder hacer los cortes y adaptarlos a tu cuerpo.
-                
-                Retiran la cortina del baño. Utilizan una cinta metrica y la medida resultante es de 180cm de alto x 240cm de largo. 
-                Elegí en que punto haces el corte para que te den trozos que cubran tus brazos y piernas en partes iguales.
-                
-                Ingresa LA ALTURA 
+              { 
+                float progresoTraje;
 
-              
+                for (float i = 2.5; i <= 100; i += 2.5) {
+                int bloques = i / 2.5; 
+                int totalBloques = 40; 
+                int bloquesVacios = totalBloques - bloques; 
 
 
-                )" << endl;
+                     for (int j = 0; j < bloques; j++) {
+                    cout << "#";
+                }
 
+                     for (int j = 0; j < bloquesVacios; j++) {
+                    cout << "-";
+                }
 
-                // logica para imprimir el traje con celdas de la matriz
+                   cout << endl;
 
-                string costura;
-                int alto = 20, ancho = 25;
-                
-                for (int i = 1; i <= alto; i++)
-                {
-                  for (int j = 1; j <= ancho; j++)
-                   {
-                      cout << i << "," << j << " " ;
-
-                        }
 
                 }
                 
               
 
-
-              
-
-
                 cin.ignore().get();
-
-               
-
-              }
-                
             
-
+              }
               else if (trapo)
               {
                 system("clear");
