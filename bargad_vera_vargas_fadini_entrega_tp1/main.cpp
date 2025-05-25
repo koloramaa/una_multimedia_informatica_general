@@ -214,13 +214,15 @@ int main()
               if (cortina)
 
               { 
+                cout << "Presiona ENTER para CREAR EL TRAJE";
+                cin.ignore().get();
+                
                 float progresoTraje;
 
-                for (float i = 2.5; i <= 100; i += 2.5) {
-                int bloques = i / 2.5; 
-                int totalBloques = 40; 
+                for (float i = 12.5; i <= 100; i += 12.5) {
+                int bloques = i / 12.5; 
+                int totalBloques = 8; 
                 int bloquesVacios = totalBloques - bloques; 
-
 
                      for (int j = 0; j < bloques; j++) {
                     cout << "#";
@@ -232,14 +234,16 @@ int main()
 
                    cout << endl;
 
-
-                }
-                
               
 
+
+                cout << " " << i << "%" << endl; 
+                cout << "Tu traje está LISTO. Presiona ENTER PARA CONTINUAR";
                 cin.ignore().get();
             
               }
+
+            }
               else if (trapo)
               {
                 system("clear");
