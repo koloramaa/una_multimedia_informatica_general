@@ -13,6 +13,8 @@ int main()
   bool trapo = false; // Elementos elegidos por el jugador
   bool cortina = false;
   bool validadorMaterial = false; // Para volver al loop al elegir Vestido de 15
+  bool trajeCortina = false;
+  bool trajeTrapo = false;
    
 
   while (!salir_del_juego)
@@ -128,7 +130,7 @@ int main()
 
           } while (eleccion != 1 && eleccion != 2);
 
-
+          
 
           // -------------------------- Pantalla 3 - Creación del traje  ---------------------------
           
@@ -163,9 +165,9 @@ int main()
               validadorMaterial = true;
 
 
-            if (eleccion == 1)
+              if (eleccion == 1)
 
-            {
+              {
               
               system("clear");
 
@@ -175,19 +177,20 @@ int main()
               cortina = true;
               trapo = false;
               cin.ignore().get();
-            }
+              }
 
-            else if (eleccion == 2)
+              else if (eleccion == 2)
             // ------------------ Pantalla 3.2 - TRAJE Trapo de Piso  --------------------------
 
               {
                 cout << R"(Tu traje fue creado. En el proceso de creación se formaron algunas
-                rajaduras producto de lo viejo de los trapos. Presiona ENTER para continuar.)" // Con esta opción cuando salga a la nieve morirá.
+                rajaduras producto de lo viejo de los trapos. Presiona ENTER para continuar.)"<< endl; // Con esta opción cuando salga a la nieve morirá.
 
-                << endl;
+
 
                 trapo = true;
                 cortina = false;
+                cin.ignore().get();
 
               }
 
@@ -206,9 +209,9 @@ int main()
               }
 
 
-            } while (eleccion < 1 || eleccion > 3 || !validadorMaterial);
+              } while (eleccion < 1 || eleccion > 3 || !validadorMaterial);
 
-            // ------------------ Pantalla 3.1 - TRAJE Cortina de baño --------------------------
+             // ------------------ Pantalla 3.1 - TRAJE Cortina de baño --------------------------
 
 
               if (cortina)
@@ -217,8 +220,6 @@ int main()
                 cout << "Presiona ENTER para CREAR EL TRAJE";
                 cin.ignore().get();
                 
-                float progresoTraje;
-
                 for (float i = 12.5; i <= 100; i += 12.5) {
                 int bloques = i / 12.5; 
                 int totalBloques = 8; 
@@ -233,25 +234,71 @@ int main()
                 }
 
                    cout << endl;
+                   cout << " " << i << "%" << endl; 
 
-              
 
+                }
 
-                cout << " " << i << "%" << endl; 
-                cout << "Tu traje está LISTO. Presiona ENTER PARA CONTINUAR";
                 cin.ignore().get();
-            
+                trajeCortina = true;
+
+
               }
 
-            }
+            
               else if (trapo)
               {
-                system("clear");
-                cout << R"(Saliste con el trapo. Presiona ENTER para continuar.)" << endl;
+                cout << "Presiona ENTER para CREAR EL TRAJE";
                 cin.ignore().get();
 
+
+                for (float k = 12.5; k <= 100; k += 12.5) {
+                int bloques = k / 12.5; 
+                int totalBloques = 8; 
+                int bloquesVacios = totalBloques - bloques; 
+
+                     for (int m = 0; m < bloques; m++) {
+                    cout << "#";
+                }
+
+                     for (int m = 0; m < bloquesVacios; m++) {
+                    cout << "-";
+                }
+
+                   cout << endl;
+                   cout << " " << k << "%" << endl; 
+
+                }
+
+                cin.ignore().get();
+                trajeTrapo = true;
               }
+              
+              
+
+           if (trajeCortina) // Esta opción te lleva a sobrevivir.
+
+                {
+                  cout << "Felicitaciones. Ya tenes tu traje creado. Salis a la nieve. Sobrevivís. Presiona ENTER para continuar."; 
+                  cin.ignore().get();
+                  gameover = true;
+
+                } 
+                
+                  else if (trajeTrapo) // esta opción te lleva a morir porque se te infiltra la nieve en el traje. 
+                {
+                  cout << "La nieve se infiltra por tu ropa. Es tu final. Presiona enter para continuar.";
+                  cin.ignore().get();
+                  gameover = true;
+
+
+                }
+
+
+      
           }
+
+        }           
 
         }
 
@@ -259,18 +306,17 @@ int main()
 
 
 
-      cout << "Game Over" << endl;
+      cout << "El juego ha finalizado." << endl;
 
-      cout << "Presione ENTER para continuar...";
+      cout << "Presione ENTER para volver al menú principal...";
 
       cin.get();
 
-    }
+
+      }
 
 
-  }
-
-
+    
     else
   
     {
@@ -281,15 +327,23 @@ int main()
 
     cout << "Hasta la próxima!" << endl;  
     }
-}
+
+
+    }
+
+  
+  
+ 
 
     
   
     return 0;
 
-}
 
 
+  }
+
+    
 
 
            /*  // Pantalla 2.1.2
