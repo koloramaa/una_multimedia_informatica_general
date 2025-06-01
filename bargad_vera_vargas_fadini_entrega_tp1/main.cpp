@@ -10,8 +10,8 @@ int main()
   bool gameover = false;
   int opcion;   // Para el menú principal
   int eleccion; // Para las elecciones del juego
-  bool trapo = false; // Elementos elegidos por el jugador
-  bool cortina = false;
+  bool pantallaTrapo = false; // Elementos elegidos por el jugador
+  bool pantallaCortina = false;
   bool validadorMaterial = false; // Para volver al loop al elegir Vestido de 15
   bool trajeCortina = false;
   bool trajeTrapo = false;
@@ -50,8 +50,10 @@ int main()
           Informatica General 1
           Bajo las órdenes del Almirante Tirigall
           y la Vice Almirante Qualindi
-          )" << endl;
+        
+          Presione ENTER para continuar.)" << endl;
         cin.ignore().get();
+        opcion = 0;
         break;
         
       default:
@@ -72,11 +74,14 @@ int main()
         do
         {
           system("clear");
-          cout << R"(Sos un estudiante universitario que vive en un departamento del barrio de Almagro con algunos amigxs. 
-          Todo comienza cuando, una noche de diciembre mientras jugaban videojuegos, se corta la luz y notan que una nieve sospechosa
-           acecha la ciudad. Desde ese momento, tienen que tomar decisiones rápidas para descubrir qué está pasando)" << endl;
-          cout << "Elija una opción:" << endl;
-          cout << R"(OPCION 1: Salir a ver la nieve.
+          cout << R"(
+          Sos un estudiante universitario que vive en un departamento del barrio de 
+          Almagro con algunos amigxs. Una noche de diciembre mientras jugaban videojuegos, se corta la luz.
+          Uno de tus amigos detecta algo raro al ver por la ventana. Notan un polvo sospechoso en el aire.
+          Se miran entre todxs sin saber exactamente que hacer, hasta que decidís 
+          que hay que tomar una decisión.)" << endl;
+          cout << R"(ELEGÍ una opción:)" << endl;
+          cout << R"(OPCION 1: Salir a la calle para ver que está pasando.
           (Presione 1)
           )" 
           << endl;
@@ -95,10 +100,32 @@ int main()
         {
             // Elección de salir a la nieve. Significa que termina el juego.
             system("clear");
-            cout << "Saliste directo a la nieve. Puede parecer un cuento de hadas, pero la nieve te aniquila. Moriste." << endl;
-            
-            cin.ignore().get();
+            cout << R"(Tus amigos están discutiendo sobre qué hacer. Algunos dicen que salir a ver que
+            pasa es lo mejor. Los otros dudan. Tomás, fanático de los cómics, dice haber leído una historieta
+            antigua que advertía de los peligros de una posible nevada radioactiva. Les decís a tus amigos
+            que no se preocupen. Vos sos el que va a salir a ver que pasa. Todos te miran asustados, pero
+            vos no tomás ni un segundo y decidís salir.
 
+            Luego de forzar un poco la puerta de la entrada podes salir. Tus amigos te celebran desde
+            la ventana del balcón. Pero de repente...
+            
+            Tus músculos empiezan a tensarse.
+
+            No entendés muy bien que está pasando. 
+            
+            Tu cara representa el más absoluto terror.
+            
+            Intentás volver pero tus rodillas ceden.
+
+            Recordás a mamá.
+
+            Tus amigos golpean la ventana...
+
+            Y es lo último que ves.
+              
+            Presiona ENTER para continuar.)" << endl;
+                       
+            cin.ignore().get();
              gameover = true;
 
           } 
@@ -114,17 +141,27 @@ int main()
 
             system("clear");
             
-            cout << R"(Narrador: Decidiste quedarte en casa
-            Tom: ¡Hey! miren!! un gato en la nieve está muriendo
-            Lou: Pobrecito.
-            Narrador: Al parecer tienen que sobrevivir a la nieve. Busquen una solución pronto… Sino, todos van a morir como ese gato! 
-            Narrador: Tu amigo tarotista está muy preocupado. Intuye que puede ser algo peligroso debido a la muerte del gato..
-            Dulce: ¡Boludo! Puede ser.. ¿Qué hacemos?)"
+            cout << R"(: Decidiste quedarte en casa.
+            
+            Lo que parecía un polvo extraño ahora parece nieve. Se acumula
+            en los techos de las casas que ven desde el departamento.
+            
+            Tom: ¡Hey! miren!! El gato de la vecina salió al techo.
+
+            Todos miran un salto ágil del felino que pierde fuerza a los
+            pocos segundos. Se quedan estupefactos. Lo peor ha sido confirmado.
+
+            Tomás: Creo que esto es realmente grave.
+            Lour: Necesitamos buscar una solución.
+            Camilo: Ay no, ¿y el resto de la gente? No me digan que...
+            Dulce: ¡Boludo! ¿Qué hacemos?)"
 
             << endl;
 
-            cout << R"(Todos te m iran a vos para tomar una decisión. Estás nervioso pero sabes que cuentan con vos. Presioná 1 para LLENARTE DE DETERMINACIÓN
-            o presiona 2 para mirar hacia el piso y NO DECIR NADA.)" << endl;
+            cout << R"(Todos te m iran a vos para tomar una decisión. 
+            Estás nervioso pero sabes que cuentan con vos. 
+            Presioná 1 para LLENARTE DE DETERMINACIÓN o 
+            presiona 2 para mirar hacia el piso y NO DECIR NADA.)" << endl;
 
             cin >> eleccion;
 
@@ -145,10 +182,18 @@ int main()
 
               system("clear");
 
-              cout << R"(Narrador: Tienen que crear un traje que les permita salir sin ser aniquiladxs por la nieve peligrosa!
-              Todxs empiezan a buscar distintos materiales u objetos en el departamento.)" << endl;
+              cout << R"(Tienen que crear un traje que les permita salir 
+              sin ser aniquiladxs por la nieve peligrosa!
 
-              cout << R"(¿Con qué haces tu traje?
+              Les decís a tus amigos que empiecen a buscar distintos 
+              materiales en el departamento para crear un traje impermeable.)
+              Presiona ENTER para continuar.)" << endl;
+
+              cin.ignore().get();
+
+              cout << R"(Después de un rato todos se reúnen con ideas de materiales. 
+              
+              ¿Con qué haces tu traje?
 
               1) Cortina de baño
 
@@ -171,11 +216,12 @@ int main()
               
               system("clear");
 
-              cout << R"(Narrador: Tomás la cortina del baño y empezás a confeccionar cortes para que cubra distintas partes de tu cuerpo.
-              Tus amigos te ayudan cortando y encintando. Después de 30 minutos estás recubierto de plástico. PRESIONA ENTER PARA CONTINUAR)" << endl;
+              cout << R"(Decidís que tu traje va a ser compuesto por la cortina del baño.
+              Parece ser lo más impermeable y tiene una buena resistencia.
+               PRESIONA ENTER PARA CONTINUAR.)" << endl;
               
-              cortina = true;
-              trapo = false;
+              pantallaCortina = true;
+              pantallaTrapo = false;
               cin.ignore().get();
               }
 
@@ -183,13 +229,15 @@ int main()
             // ------------------ Pantalla 3.2 - TRAJE Trapo de Piso  --------------------------
 
               {
-                cout << R"(Tu traje fue creado. En el proceso de creación se formaron algunas
-                rajaduras producto de lo viejo de los trapos. Presiona ENTER para continuar.)"<< endl; // Con esta opción cuando salga a la nieve morirá.
+                cout << R"(Decidís que tu traje va a ser compuesto por varios trapos de piso que pudieron
+                recolectar. Son de una material poroso que puede servir. Son un poco viejos y algunos
+                tienen un poco de daño.
+               PRESIONA ENTER PARA CONTINUAR.)" << endl; // Con esta opción cuando salga a la nieve morirá.
 
 
 
-                trapo = true;
-                cortina = false;
+                pantallaTrapo = true;
+                pantallaCortina = false;
                 cin.ignore().get();
 
               }
@@ -199,11 +247,11 @@ int main()
 
               {
                 cout << R"(Esto no parece funcionar. El vestido tiene muchas partes de tela fina y microtul. 
-                Parece que la nieve se va a infiltrar por allí. 
+                Parece que la nieve se va a infiltrar por allí. No es lo suficientemente impermeable. 
                 PRESIONA ENTER PARA CONTINUAR.)" << endl;
                 validadorMaterial = false;
-                trapo = false;
-                cortina = false;
+                pantallaTrapo = false;
+                pantallaCortina = false;
                 cin.ignore().get();
                 
               }
@@ -214,10 +262,12 @@ int main()
              // ------------------ Pantalla 3.1 - TRAJE Cortina de baño --------------------------
 
 
-              if (cortina)
+              if (pantallaCortina)
 
               { 
-                cout << "Presiona ENTER para CREAR EL TRAJE";
+                cout << R"(Agarran la cortina y empiezan a trabajar sobre ella. Con tijeras
+                y cinta medidora comienzan a hacer los cortes y colocarla sobre tu cuerpo.
+                Presiona ENTER para CREAR EL TRAJE)";
                 cin.ignore().get();
                 
                 for (float i = 12.5; i <= 100; i += 12.5) {
@@ -234,21 +284,30 @@ int main()
                 }
 
                    cout << endl;
-                   cout << " " << i << "%" << endl; 
-
+                   cout << " " << i << "%" << endl;
+                  
+                  cout << "PRESIONA ENTER PARA SEGUIR EL PROCESO" ;
+                  cin.ignore().get();
+                
 
                 }
-
+    
+                cout << ""; // Acá poner un ASCII del traje
+                
+                cout << R"(El traje está FINALIZADO. ¡Te queda bastante bien! Usás guantes
+                en las manos y borcegos que tenías en el armario. Presiona ENTER para salir a la nieve.)";
                 cin.ignore().get();
+                trajeTrapo = false;
                 trajeCortina = true;
 
 
               }
 
             
-              else if (trapo)
+              else if (pantallaTrapo)
               {
-                cout << "Presiona ENTER para CREAR EL TRAJE";
+                cout << R"(Juntan varios pedazos de trapo. Con tijera y cinta medidora empiezan a 
+                realizar cortes para adaptarlo a tu cuerpo. Presiona ENTER para CREAR EL TRAJE)";
                 cin.ignore().get();
 
 
@@ -266,20 +325,38 @@ int main()
                 }
 
                    cout << endl;
-                   cout << " " << k << "%" << endl; 
-
+                   cout << " " << k << "%" << endl;
+                  cout << "PRESIONA ENTER PARA SEGUIR EL PROCESO" ;
+                  cin.ignore().get();
                 }
-
+                cout << R"(El traje está FINALIZADO. Es un poco tosco y tenes miedo
+                de algunas rajaduras que se fueron formando en el proceso.
+                El material no es muy amable. Presiona ENTER PARA SALIR A LA NIEVE.)";
                 cin.ignore().get();
+                trajeCortina = false;
                 trajeTrapo = true;
               }
-              
-              
 
            if (trajeCortina) // Esta opción te lleva a sobrevivir.
 
                 {
-                  cout << "Felicitaciones. Ya tenes tu traje creado. Salis a la nieve. Sobrevivís. Presiona ENTER para continuar."; 
+                  cout << R"(Te fundís en un abrazo con tus amigos. Lo que parecía una noche como tantas
+                  otras se convirtió en un verdadero desafío a tu coraje. Pero llegaste hasta acá y lo hiciste.
+                  Estás orgulloso de este gran trabajo en equipo.
+                  
+                  Finalmente salís a la calle después de luchar contra la puerta de entrada.
+                  
+                  Tus amigos miran expectantes desde la ventana. Te cuesta respirar pero... ¡te sentis bien!.
+
+                  Ellos celebran, te hacen señales de besos, se abrazan entre ellos. Mirás al horizonte y
+                  ves la ciudad como nunca la viste. Todo está cubierto de blanco. Es hermoso y desesperante al mismo tiempo.
+                  
+                  
+                  Y recién empieza...
+
+                  Presiona ENTER para FINALIZAR EL JUEGO.
+
+                  )" ;
                   cin.ignore().get();
                   gameover = true;
 
@@ -287,11 +364,29 @@ int main()
                 
                   else if (trajeTrapo) // esta opción te lleva a morir porque se te infiltra la nieve en el traje. 
                 {
-                  cout << "La nieve se infiltra por tu ropa. Es tu final. Presiona enter para continuar.";
+                  cout << R"(e fundís en un abrazo con tus amigos. Lo que parecía una noche como tantas
+                  otras se convirtió en un verdadero desafío a tu coraje. Pero llegaste hasta acá y lo hiciste.
+                  Estás orgulloso de este gran trabajo en equipo.
+                  
+                  Finalmente salís a la calle después de luchar contra la puerta de entrada.
+                  
+                  Tus amigos miran expectantes desde la ventana. Te cuesta respirar pero... No.
+                  
+                  Algo... algo está saliendo mal. Te empezás a marear y es ahí que lo sentís. Una rajadura en el
+                  antebrazo y... Si. Se infiltró un copo.
+                  
+                  Tus músculos se tensan. Tu visión se va apagando. En los últimos flashes ves a tus amigos gritando
+                  contra la ventana. Se los ven desesperados.
+
+                  Pensás en mamá.
+
+                  Y caés a la nieve.
+
+                  Presiona ENTER para FINALIZAR EL JUEGO.
+                  
+                  )" ;
                   cin.ignore().get();
                   gameover = true;
-
-
                 }
 
 
