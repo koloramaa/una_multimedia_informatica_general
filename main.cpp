@@ -1,3 +1,12 @@
+// Bargad Tomás
+// Fadini Lourdes
+// Vargas Camilo
+// Vera Dulce
+
+// TP 1 AVENTURA CONVERSACIONAL - IG - 2025
+
+
+
 #include <iostream>
 #include <string>
 
